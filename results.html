@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Antho Javascript Quiz</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'  href='assets/CSS/styles.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+
+    <div class="clearfix">
+        <div class="card">
+          <h2>Quiz Results</h2>
+          <form method="POST">
+            <div class="input-group">
+              <label for="Name">Name</label>
+              <input type="text" name="StudentName" id="stdName" placeholder="Type your name" />
+            </div>
+            <div class="input-group">
+              <label for="FinalScore">Final Score</label>
+              <p><span id="finalTotal"> Score</span></p>
+            </div>
+            <button id="btnScore" class = "button_results">Result</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Highest Scores</h2>
+          <p><strong>Name:</strong> <span id="dshbName"></span></p>
+          <p><strong>Results:</strong> <span id="dshbResults"></span></p>
+        </div>
+      </div>
+    
+</body>
+</html>
