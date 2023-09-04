@@ -4,12 +4,18 @@ var timer = document.querySelector("#timer")
 var qnumber = document.querySelector("#Qnumber")
 var question = document.querySelector("#question")
 var qChoices = document.querySelector("#choices")
-
+var answ1Btn = document.querySelector("#answ1")
+var answ2Btn = document.querySelector("#answ2")
+var answ3Btn = document.querySelector("#answ3")
+var answ4Btn = document.querySelector("#answ4")
 
 var secondsTick = 0;
 var totalScore = 0;
 var answerCheck = ""
 var questionNumber =1;
+
+   
+
 
 if (startbtn != null) {
     startbtn.addEventListener('click', function (event){
@@ -19,14 +25,15 @@ if (startbtn != null) {
     });    
 } else {
     secondsTick = 60; 
-    // testTimer ();
-    questions ();
+    testTimer ();
+       
+       question1 ();
 }
 
 if (submit != null) {
     submit.addEventListener('click', function (event){
 
-        questions ();
+        question1 ();
 
          // secondsTick = 60; 
 
@@ -52,108 +59,155 @@ function testTimer() {
     }, 1000);
  }
 
- function questions () {
-   
-   if (questionNumber === 1) {
-    qnumber.textContent = "1"
-    question.textContent = "Javascript is an ___________ language? "
-    qChoices.options[1].textContent = "A. Oject-Oriented";
-    qChoices.options[2].textContent = "B. Object-Based";
-    qChoices.options[3].textContent = "C. Procedural";
-    qChoices.options[4].textContent = "D. None of the above";
+ function question1 () {
 
-    answerCheck = qChoices.value;
-   }
-    // questionNumber = '1';
-    if (questionNumber === 2) {
+    // if (questionNumber === 1) {
+    qnumber.textContent = "1"
+    questionNumber = 1;
+    question.textContent = "Javascript is an ___________ language? "
+    answ1Btn.textContent = "A. Object-Oriented";
+    answ2Btn.textContent = "B. Object-Based";
+    answ3Btn.textContent = "C. Procedural";
+    answ4Btn.textContent = "D. None of the above";
+
+   
+  }
+  
+   
+    function question2 () {
+  
          qnumber.textContent = "2"
-        question.textContent = "Which of the following keywords is used to define a variable in Javascript? "
-        qChoices.options[1].textContent = "A. var";
-        qChoices.options[2].textContent = "B. let";
-        qChoices.options[3].textContent = "C. Both A and B";
-        qChoices.options[4].textContent = "D. None of the above";
-            // qChoices.addEventListener('change', function () {
-        answerCheck = qChoices.value;
-            // questionNumber = '2';
+         questionNumber = 2;
+         question.textContent = "Which of the following keywords is used to define a variable in Javascript? "
+         answ1Btn.textContent = "A. var";
+         answ2Btn.textContent = "B. let";
+         answ3Btn.textContent = "C. Both A and B";
+         answ4Btn.textContent = "D. None of the above"
+
      }
 
-    if (questionNumber === 3) {
+    function question3 () {
+     
     qnumber.textContent = "3"
+    questionNumber = 3;
     question.textContent = "Which of the following methods is used to access HTML elements using Javascript? "
-    qChoices.options[1].textContent = "A. getElementbyId()";
-    qChoices.options[2].textContent = "B. getElementsByClassName()";
-    qChoices.options[3].textContent = "C. Both A and B";
-    qChoices.options[4].textContent = "D. None of the above";
-
-    // qChoices.addEventListener('change', function () {
-    answerCheck = qChoices.value;
-        // questionNumber = '3';
-    } 
- }
-
-submit.addEventListener('click', function () {
-              
-         
-        if (questionNumber=== 1) {
-            if (answerCheck === 'A') {
-                totalScore = 25;
-                console.log(answerCheck)
-                questionNumber = 2;
-                questions ();
-    
-            }else {
-            secondsTick = secondsTick - 10;
-            questionNumber = 2;
-            questions ();
-            }
-        }
-        
-        if (questionNumber=== 2) {
-            if (answerCheck === 'C') {
-                totalScore = (totalScore + 25);
-                console.log(answerCheck)
-                console.log(totalScore)
-                questionNumber = 3;
-                questions ()
-        
-            }else {
-            secondsTick = secondsTick - 10;
-            questions ()
-            }
-        }
-
-        if (questionNumber=== '3') {
-            if (answerCheck === 'C') {
-                totalScore = (totalScore + 25);
-                console.log(answerCheck)
-                console.log(totalScore)
-
-                // questions4 ()
-        
-            }else {
-            secondsTick = secondsTick - 10;
-            console.log(answerCheck)
-                console.log(totalScore)
-            // questions4 ()
-            }
-        }
-
-        if (questionNumber=== '4') {
-            if (answerCheck === 'D') {
-                totalScore = (totalScore + 25);
-                console.log(answerCheck)
-                console.log(totalScore)
-        
-            }else {
-            secondsTick = secondsTick - 10;
-            }
-        }
-
-        console.log(totalScore)
-
-        return;
-
-    });
+    answ1Btn.textContent = "A. getElementbyId()";
+    answ2Btn.textContent = "B. getElementsByClassName()";
+    answ3Btn.textContent = "C. Both A and B";
+    answ4Btn.textContent = "D. None of the above"
 
    
+    } 
 
+    function question4 () {
+   
+        qnumber.textContent = "4"
+        questionNumber = 4;
+        question.textContent = "Which of the following methods can be used to display data in some form using Javascript?"
+        answ1Btn.textContent = "A. document.write()";
+        answ2Btn.textContent = "B. console.log()";
+        answ3Btn.textContent = "C. window.alert()";
+        answ4Btn.textContent = "D. All of the above"
+        
+    } 
+
+ 
+
+answ1Btn.addEventListener ('click', function () {
+
+    if (questionNumber === 1)   {
+        totalScore = totalScore + 25;
+        question2 ();
+    }
+    
+    else if (questionNumber === 2) {
+        secondsTick = secondsTick - 10;
+        question3 ();
+    } 
+
+    else if (questionNumber === 3) {
+        secondsTick = secondsTick - 10;
+        question4 ();
+        
+    } else if (questionNumber === 4) {
+        secondsTick = secondsTick - 10;
+    }
+    
+
+    return;
+
+});
+
+
+
+
+answ2Btn.addEventListener ('click', function () {
+
+        secondsTick = secondsTick - 10;
+        console.log("2bt");
+        // /question2();
+        if (questionNumber === 1) {
+            question2 ();
+        }
+        
+        else if (questionNumber === 2) {
+            // console.log("3bt");
+
+            question3 ();
+        } 
+
+        else if (questionNumber === 3) {
+            question4 ();
+            
+        }
+    
+    });
+
+
+
+    answ3Btn.addEventListener ('click', function () {
+
+        
+        if (questionNumber === 2)   {
+            totalScore = totalScore + 25;
+            question3 ();
+        }
+        
+        else if (questionNumber === 3) {
+            totalScore = totalScore + 25;
+            question4 ();
+        } 
+
+        else if (questionNumber === 1) {
+            secondsTick = secondsTick - 10;
+            question2 ();
+            
+        } else if (questionNumber === 4) {
+            secondsTick = secondsTick - 10;
+        }
+    
+        });
+
+        answ4Btn.addEventListener ('click', function () {
+
+        
+            if (questionNumber === 4)   {
+                totalScore = totalScore + 25;
+                // question3 ();
+            }
+            
+            else if (questionNumber === 1) {
+                secondsTick = secondsTick - 10;
+                question2 ();
+            } 
+    
+            else if (questionNumber === 2) {
+                secondsTick = secondsTick - 10;
+                question3 ();
+                
+            } else if (questionNumber === 3) {
+                secondsTick = secondsTick - 10;
+                question4 ();
+            }
+        
+            });
