@@ -37,7 +37,7 @@ button {
   transition-property: background-color;
   transition-timing-function: linear;
   margin: 0.6em auto;
-  display:flex;
+  display:grid;
   place-items:center;
 }
 
@@ -57,7 +57,7 @@ button {
     transition-property: background-color;
     transition-timing-function: linear;
     margin: 0.6em auto;
-    display:flex;
+    display:block;
     place-items:center;
 
 }
@@ -82,10 +82,11 @@ select {
   margin: 60px auto;
   padding: 20px;
   width: 60vw;
+  display: grid;
   display: block;
 }
 
-.card::after {
+/* .card::after {
   content: " ";
   display: block;
   clear: both;
@@ -97,7 +98,7 @@ select {
   width: 100%;
   margin-top: 10px;
   background-color: whitesmoke;
-}
+} */
 
 
 

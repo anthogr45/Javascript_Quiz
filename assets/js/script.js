@@ -1,5 +1,7 @@
+
+
 var startbtn = document.getElementById("start")
-var submit = document.querySelector("#submit")
+var btnFinish = document.querySelector("#finish")
 var timer = document.querySelector("#timer")
 var qnumber = document.querySelector("#Qnumber")
 var question = document.querySelector("#question")
@@ -13,6 +15,7 @@ var secondsTick = 0;
 var totalScore = 0;
 var answerCheck = ""
 var questionNumber =1;
+var stdName = "";
 
    
 
@@ -25,25 +28,38 @@ if (startbtn != null) {
     });    
 } else {
     secondsTick = 60; 
-    testTimer ();
+    // testTimer ();
        
        question1 ();
 }
 
-if (submit != null) {
-    submit.addEventListener('click', function (event){
+if (btnFinish != null) {
+    btnFinish.addEventListener('click', function (event){
 
         question1 ();
-
-         // secondsTick = 60; 
-
-        // testTimer ();
-
-        // window.location = window.location.href.replace("index.html", "Quiz.html");    
     });    
 } else {
     console.log("All Good")
 }
+
+// if((answ1Btn === null) && (answ2Btn === null) && (answ3Btn === null) && (answ4Btn === null)) {
+
+//     console.log("Null Error Handled");
+// } else{
+//     // var questionNumber =1; 
+// }
+
+// if(answ1Btn != null) {
+   
+// answ1Btn.addEventListener ('click', function () {
+//     console.log("okay")
+// });
+
+// }else{
+//     console.log("All Good")
+// }
+
+
 
 function testTimer() {
    
@@ -54,7 +70,7 @@ function testTimer() {
 
         if(secondsTick === 0) {
             clearInterval(timerSeconds);
-            
+            wrapper ();            
         }
     }, 1000);
  }
@@ -72,8 +88,7 @@ function testTimer() {
 
    
   }
-  
-   
+    
     function question2 () {
   
          qnumber.textContent = "2"
@@ -111,7 +126,15 @@ function testTimer() {
         
     } 
 
- 
+    function wrapper () {
+
+        alert("End of the Quiz !");
+        stdName = prompt("Please type your inital or your first name below")
+        localStorage.setItem("Name", stdName);
+        localStorage.setItem("Final Score", totalScore);
+        window.location = window.location.href.replace("Quiz.html", "results.html");  
+
+    }
 
 answ1Btn.addEventListener ('click', function () {
 
@@ -131,6 +154,7 @@ answ1Btn.addEventListener ('click', function () {
         
     } else if (questionNumber === 4) {
         secondsTick = secondsTick - 10;
+        wrapper ();
     }
     
 
@@ -159,6 +183,9 @@ answ2Btn.addEventListener ('click', function () {
         else if (questionNumber === 3) {
             question4 ();
             
+        }else if (questionNumber === 4) {
+            secondsTick = secondsTick - 10;
+            wrapper ();
         }
     
     });
@@ -184,30 +211,38 @@ answ2Btn.addEventListener ('click', function () {
             
         } else if (questionNumber === 4) {
             secondsTick = secondsTick - 10;
+            wrapper ();
         }
     
         });
 
-        answ4Btn.addEventListener ('click', function () {
+    answ4Btn.addEventListener ('click', function () {
 
         
-            if (questionNumber === 4)   {
-                totalScore = totalScore + 25;
-                // question3 ();
-            }
+        if (questionNumber === 4)   {
+            totalScore = totalScore + 25;
+            wrapper ();
+            // question3 ();
+        }
             
-            else if (questionNumber === 1) {
-                secondsTick = secondsTick - 10;
-                question2 ();
-            } 
+        else if (questionNumber === 1) {
+            secondsTick = secondsTick - 10;
+            question2 ();
+        } 
     
-            else if (questionNumber === 2) {
-                secondsTick = secondsTick - 10;
-                question3 ();
+        else if (questionNumber === 2) {
+            secondsTick = secondsTick - 10;
+            question3 ();
                 
-            } else if (questionNumber === 3) {
-                secondsTick = secondsTick - 10;
-                question4 ();
-            }
+        }else if (questionNumber === 3) {
+            secondsTick = secondsTick - 10;
+            question4 ();
+        }
         
-            });
+    });
+
+    btnFinish.addEventListener ('click', function() {
+
+        wrapper ();
+    });
+
