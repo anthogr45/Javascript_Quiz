@@ -23,31 +23,13 @@ var answerCheck = ""
 var questionNumber =1;
 var stdName = "";
 
-if (startbtn != null) {
-    startbtn.addEventListener('click', function (event){
+secondsTick = 60; 
+testTimer (); //Calling the timer function 
 
-        window.location = window.location.href.replace("index.html", "Quiz.html");    
-        
-    });    
-} else {
-    secondsTick = 60; 
-    testTimer ();
+results.style.visibility= 'hidden'; //Final results container was hidden at the start
+question1 (); //Contains the first question functions
 
-    // questionBox.style.display = 'none';
-    results.style.visibility= 'hidden';
-     question1 ();
-}
-
-if (btnFinish != null) {
-    btnFinish.addEventListener('click', function (event){
-        question1 ();
-    });    
-} else {
-    console.log("All Good")
-}
-
-
-function testTimer() {
+function testTimer() {  //Timer (60 Secs)
    
     var timerSeconds = setInterval(function() {
 
@@ -61,39 +43,42 @@ function testTimer() {
     }, 1000);
  }
 
- function question1 () {
+ function question1 () { //Contains the first question functions
     
-    qnumber.textContent = "1"
+    qnumber.textContent = "1";
     questionNumber = 1;
-    question.textContent = "Javascript is an ___________ language? "
+    question.textContent = "Javascript is an ___________ language? ";
     answ1Btn.textContent = "A. Object-Oriented";
     answ2Btn.textContent = "B. Object-Based";
     answ3Btn.textContent = "C. Procedural";
     answ4Btn.textContent = "D. None of the above";
+    return;
    
   }
     
 function question2 () {
   
-    qnumber.textContent = "2"
+    qnumber.textContent = "2";
     questionNumber = 2;
-    question.textContent = "Which of the following keywords is used to define a variable in Javascript? "
+    question.textContent = "Which of the following keywords is used to define a variable in Javascript? ";
     answ1Btn.textContent = "A. var";
     answ2Btn.textContent = "B. let";
     answ3Btn.textContent = "C. Both A and B";
-    answ4Btn.textContent = "D. None of the above"
+    answ4Btn.textContent = "D. None of the above";
+    return;
 
 }
 
-function question3 () {
+function question3 () { //Contains the third question functions
      
     qnumber.textContent = "3"
     questionNumber = 3;
-    question.textContent = "Which of the following methods is used to access HTML elements using Javascript? "
+    question.textContent = "Which of the following methods is used to access HTML elements using Javascript? ";
     answ1Btn.textContent = "A. getElementbyId()";
     answ2Btn.textContent = "B. getElementsByClassName()";
     answ3Btn.textContent = "C. Both A and B";
-    answ4Btn.textContent = "D. None of the above"
+    answ4Btn.textContent = "D. None of the above";
+    return;
    
 } 
 
@@ -101,15 +86,16 @@ function question4 () {
    
     qnumber.textContent = "4"
     questionNumber = 4;
-    question.textContent = "Which of the following methods can be used to display data in some form using Javascript?"
+    question.textContent = "Which of the following methods can be used to display data in some form using Javascript?";
     answ1Btn.textContent = "A. document.write()";
     answ2Btn.textContent = "B. console.log()";
     answ3Btn.textContent = "C. window.alert()";
-    answ4Btn.textContent = "D. All of the above"
+    answ4Btn.textContent = "D. All of the above";
+    return;
         
 } 
 
-function wrapper () {
+function wrapper () { //Scope of this function is to wrap the quiz end process and to store the results
 
     secondsTick = 0;
 
@@ -121,25 +107,28 @@ function wrapper () {
     studentName.textContent = localStorage.getItem("Name");
     stdResults.textContent = localStorage.getItem("Final Score");
     myStopFunction();
+
+    return;
 }
 
-function myStopFunction() {
+function myStopFunction() { //Scope of this function will be to stop the timer interval and to hide content for final result display
     
     clearInterval(testTimer);
-    console.log("timer stopper")
-    timer.style.visibility = 'hidden'
-    questionHeading.textContent = "Thank you for taking the quiz!"
-    qnumber.textContent = ""
+    timer.style.visibility = 'hidden';
+    questionHeading.textContent = "Thank you for taking the quiz!";
+    qnumber.textContent = "";
     question.style.visibility = 'hidden';
     answ1Btn.style.visibility = 'hidden';
     answ2Btn.style.visibility = 'hidden';
     answ3Btn.style.visibility = 'hidden';
     answ4Btn.style.visibility = 'hidden';
     btnFinish.style.visibility = 'hidden';
+
+    return;
         
 }
 
-answ1Btn.addEventListener ('click', function () {
+answ1Btn.addEventListener ('click', function () { //Answer verification function for answer butoon 1
 
     if (questionNumber === 1)   {
         totalScore = totalScore + 25;
@@ -165,7 +154,7 @@ answ1Btn.addEventListener ('click', function () {
 });
 
 
-answ2Btn.addEventListener ('click', function () {
+answ2Btn.addEventListener ('click', function () { //Answer verification function for answer butoon 2
 
     secondsTick = secondsTick - 10;
         
@@ -184,12 +173,12 @@ answ2Btn.addEventListener ('click', function () {
         secondsTick = secondsTick - 10;
         wrapper ();
     }
+
+    return;
     
 });
 
-
-
-answ3Btn.addEventListener ('click', function () {
+answ3Btn.addEventListener ('click', function () { //Answer verification function for answer butoon 3
 
         
     if (questionNumber === 2)   {
@@ -210,10 +199,12 @@ answ3Btn.addEventListener ('click', function () {
         secondsTick = secondsTick - 10;
         wrapper ();
     }
+
+    return;
     
 });
 
-answ4Btn.addEventListener ('click', function () {
+answ4Btn.addEventListener ('click', function () { //Answer verification function for answer butoon 4
 
         
     if (questionNumber === 4)   {
@@ -235,11 +226,15 @@ answ4Btn.addEventListener ('click', function () {
         secondsTick = secondsTick - 10;
         question4 ();
     }
+
+    return;
         
 });
 
-btnFinish.addEventListener ('click', function() {
+btnFinish.addEventListener ('click', function() { //Finish button click event
 
     wrapper ();
+
+    return;
 });
 
