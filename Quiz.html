@@ -12,8 +12,8 @@
 </head>
 <body>
   <h1 id="timer"> 60 Seconds</h1>
-    <div class="Question_box">
-        <h2>Question # <span id="Qnumber"></span></h2>
+    <div id = "Qbox" class="Question_box">
+        <h2 id="qHeading">Question # <span id="Qnumber"></span></h2>
         <p id="question">Question </p>
           <button id="answ1", class = "button_answ" >answ1</button>
           <button id="answ2", class = "button_answ">answ2</button>
@@ -21,6 +21,14 @@
           <button id="answ4", class = "button_answ">answ4</button>
           <!-- <button id="submit">Submit</button> -->
           <button id="finish">Finish</button>
+     </div>
+
+     <div id = "results" class="card">
+      <h3>Your Results</h3>
+      <p class="results"><strong>Name:</strong> <span id="stdName"></span></p>
+      <p class="results"><strong>Results:</strong> <span id="stdScore"></span></p>
+    </div>
+  </div>
           
        
   <script src="assets/js/script.js"></script>
