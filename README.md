@@ -29,7 +29,7 @@ Home Screen layout is available in the repository path:
   
 ## Features Links
 
-The URL of the deployed application: https://anthogr45.github.io/Challenge03/Links to an external site.
+The URL of the deployed application: https://anthogr45.github.io/Challenge03/Links to an external site.](https://anthogr45.github.io/Javascript_Quiz/)](https://anthogr45.github.io/Javascript_Quiz/)
 
-The URL of the GitHub repository that contains your code: Links to an external site.https://github.com/anthogr45/Challenge03Links to an external site.
+The URL of the GitHub repository that contains your code: Links to an external site.https://github.com/anthogr45/Challenge03Links to an external site.](https://github.com/anthogr45/Javascript_Quiz)https://github.com/anthogr45/Javascript_Quiz
 
